@@ -14,7 +14,7 @@ export class ListUserComponent implements OnInit {
   isDelete:boolean = false;
   ngOnInit() {
     if(!window.localStorage.getItem('token')) {
-      this.router.navigate(['login']);
+      this.router.navigate(['']);
       return;
     }
     this.getUsers();
@@ -49,4 +49,8 @@ export class ListUserComponent implements OnInit {
   addUser(): void {
     this.router.navigate(['add-user']);
   };
+  logout(){
+    window.localStorage.clear();
+    this.router.navigate(['']);
+  }
 }

@@ -12,9 +12,12 @@
       <a class="item active" routerLink="/users">
         Users
       </a>
+      <a class="ui right floated item" (click)="logout()">
+        Logout
+      </a>
     </div>
   </div>
-  <h1 class="custom-title">Edit</h1>
+  <h1 class="custom-title">Edit User</h1>
 </div>
 
 <div class="ui container">
@@ -27,7 +30,7 @@
   <div class="ui two column centered grid custom-width">
     <div class="ui column centered grid custom-add-wrapper">
       <div class="column">
-        <form class="ui form" [formGroup]="editUser" (ngSubmit)="onSubmit()">
+        <form class="ui form" *ngIf="editUser" [formGroup]="editUser" (ngSubmit)="onSubmit()">
           <div class="hidden">
             <input type="hidden" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
           </div>

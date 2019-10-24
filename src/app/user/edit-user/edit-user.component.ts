@@ -57,5 +57,9 @@ export class EditUserComponent implements OnInit {
           this.invalidUpdateUser = true;
         });
   }
+  logout(){
+    window.localStorage.clear();
+    this.router.navigate(['']);
+  }
 
 }

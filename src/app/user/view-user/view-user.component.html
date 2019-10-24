@@ -12,9 +12,12 @@
       <a class="item active" routerLink="/users">
         Users
       </a>
+      <a class="ui right floated item" (click)="logout()">
+        Logout
+      </a>
     </div>
   </div>
-  <h1 class="custom-title">Details</h1>
+  <h1 class="custom-title">View Detail</h1>
 </div>
 <div class="list-wrapper">
 	<div *ngIf="show" class="ui card">

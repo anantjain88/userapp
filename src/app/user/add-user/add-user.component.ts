@@ -45,7 +45,7 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit() {
     if (!window.localStorage.token) {
-      this.router.navigate(["login"]);
+      this.router.navigate([""]);
     } else {
       this.addUser = this.formBuilder.group({
         username: ["", Validators.compose([Validators.required])],
@@ -53,5 +53,9 @@ export class AddUserComponent implements OnInit {
         lastname: ["", Validators.required]
       });
     }
+  }
+  logout(){
+    window.localStorage.clear();
+    this.router.navigate(['']);
   }
 }

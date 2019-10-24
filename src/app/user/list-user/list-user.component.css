@@ -1,3 +1,6 @@
+.active{
+	background-color: #417d6e!important;
+}
 .nav-wrapper{
     background-color: #373a3c;
     border-radius: 0;
@@ -19,6 +22,9 @@
 .pagination{
 	margin-right: 88px!important;
     
+}
+.active{
+	background-color: #417d6e!important;
 }
 .nav-wrapper .logo {
     font-size: 20px;

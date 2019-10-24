@@ -27,5 +27,9 @@ export class ViewUserComponent implements OnInit {
         this.show = true;
       });
   }
+  logout(){
+    window.localStorage.clear();
+    this.router.navigate(['']);
+  }
 
 }
