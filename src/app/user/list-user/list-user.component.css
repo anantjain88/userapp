@@ -18,4 +18,15 @@
 }
 .pagination{
 	margin-right: 88px!important;
+    
+}
+.nav-wrapper .logo {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.custom-title{
+    color: #373a3c;
+    font-size: 45px !important;
+    padding-left:30px;
 }
