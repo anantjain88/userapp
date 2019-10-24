@@ -1,20 +1,20 @@
 <div>
-  <div>
-    <div class="ui inverted segment nav-wrapper">
-      <div class="ui inverted secondary menu">
-        <div class="item logo">
-          Website name
-        </div>
-
-        <a class="item" routerLink="/users">
-          Home
-        </a>
-
-        <a class="item active" routerLink="/users">
-          Users
-        </a>
+  <div class="ui inverted segment nav-wrapper">
+    <div class="ui inverted secondary menu">
+      <div class="item logo">
+        Website name
       </div>
-      <h1 class="ui header title">Users</h1>
+
+      <a class="item" routerLink="/users">
+        Home
+      </a>
+
+      <a class="item active" routerLink="/users">
+        Users
+      </a>
+    </div>
+  </div>
+  <h1 class="custom-title">Users</h1>
 </div>
 <div class="ui three cards list-wrapper">
   <div class="card" *ngFor="let user of users">
@@ -33,19 +33,9 @@
       </div>
     </div>
     <div class="ui two column centered grid extra content icon-wrapper">
-      <i class="large edit outline icon"></i>
+      <i class="large edit outline icon" (click)="editUser(user)"></i>
       <i class="large address card outline icon detail-user" (click)="viewUser(user)"></i>
-      <i class="large trash alternate outline icon"></i>
+      <i class="large trash alternate outline icon" (click)="deleteUser(user)"></i>
     </div>
   </div>
-</div>
-<div class="ui right floated pagination menu">
-  <a class="icon item" (click)="getUsers(page-1)">
-    <i class="left chevron icon"></i>
-  </a>
-  <a [ngClass]="page==1 ? 'item active' : 'item'" (click)="getUsers(1)">1</a>
-  <a [ngClass]="page==2 ? 'item active' : 'item'" (click)="getUsers(2)">2</a>
-  <a class="icon item" (click)="getUsers(page+1)">
-    <i class="right chevron icon"></i>
-  </a>
 </div>

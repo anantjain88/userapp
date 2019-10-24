@@ -1,18 +1,20 @@
 <div>
-    <div class="ui inverted segment nav-wrapper">
-        <div class="ui inverted secondary menu">
-          <a class="item active">
-            Home
-          </a>
-          <a class="item">
-            Messages
-          </a>
-          <a class="item">
-            Friends
-          </a>
-        </div>
+  <div class="ui inverted segment nav-wrapper">
+    <div class="ui inverted secondary menu">
+      <div class="item logo">
+        Website name
       </div>
-      <h1 class="ui header title">Details</h1>
+
+      <a class="item" routerLink="/users">
+        Home
+      </a>
+
+      <a class="item active" routerLink="/users">
+        Users
+      </a>
+    </div>
+  </div>
+  <h1 class="custom-title">Details</h1>
 </div>
 <div class="list-wrapper">
 	<div *ngIf="show" class="ui card">

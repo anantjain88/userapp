@@ -9,42 +9,40 @@ import {ApiService} from "../../service/api.service";
 })
 export class ListUserComponent implements OnInit {
 
-  users: User[];
-
   constructor(private router: Router, private apiService: ApiService) { }
-
+  users: []
   ngOnInit() {
     if(!window.localStorage.getItem('token')) {
       this.router.navigate(['login']);
       return;
     }
-    this.getUsers(1)
+    this.getUsers();
   }
 
-  getUsers(page){
-  	this.page = page;
-  	this.apiService.getUsers(page).subscribe(data => {
+  getUsers(){
+  	this.apiService.getUsers().subscribe(data => {
         this.users = data.data;
     });
   }
 
-  viewUser(user: User): void {
+  viewUser(user): void {
   	window.localStorage.removeItem("UserId");
     window.localStorage.setItem("UserId", user.id.toString());
   	this.router.navigate(['view-user']);
   }
 
-  deleteUser(user: User): void {
-    this.apiService.deleteUser(user.id)
-      .subscribe( data => {
-        this.users = this.users.filter(u => u !== user);
-      })
-  };
-
-  editUser(user: User): void {
+  editUser(user): void {
     window.localStorage.removeItem("editUserId");
     window.localStorage.setItem("editUserId", user.id.toString());
     this.router.navigate(['edit-user']);
+  }
+
+  deleteUser(user): void {
+    this.apiService.deleteUser(user.id)
+      .subscribe( data => {
+      	console.log(data, 'data')
+        this.users = this.users.filter(u => u !== user);
+      })
   };
 
   addUser(): void {

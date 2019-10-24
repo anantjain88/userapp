@@ -15,8 +15,8 @@ export class ApiService {
     return this.http.post(this.baseUrl+'login',loginPayload);
   }
 
-  getUsers(page: number) {
-    return this.http.get(this.baseUrl+'users?page='+page);
+  getUsers() {
+    return this.http.get(this.baseUrl+'users?per_page=12');
   }
 
   getUserById(id: number) {
@@ -31,7 +31,7 @@ export class ApiService {
   //   return this.http.put<ApiResponse>(this.baseUrl + user.id, user);
   // }
 
-  // deleteUser(id: number): Observable<ApiResponse> {
-  //   return this.http.delete<ApiResponse>(this.baseUrl + id);
-  // }
+  deleteUser(id: number) {
+    return this.http.delete(this.baseUrl + 'users/' + id);
+  }
 }
