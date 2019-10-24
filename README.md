@@ -21,6 +21,6 @@ Test case written for only User Listing route.
 
 ## Used Packages
 
-1. Semantic-ui for front-end designing
+1. Semantic-ui for front-end designing(https://semantic-ui.com)
 2. For backend API calling will be (https://reqres.in/api/).
 
