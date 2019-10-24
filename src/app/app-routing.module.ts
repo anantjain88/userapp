@@ -9,7 +9,6 @@ import {ViewUserComponent} from "./user/view-user/view-user.component";
 
 const routes: Routes = [
   { path : '', component : LoginComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'users', component: ListUserComponent },
   { path: 'add-user', component: AddUserComponent },
   { path: 'edit-user', component: EditUserComponent },
