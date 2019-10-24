@@ -23,9 +23,9 @@ export class ApiService {
   //   return this.http.get<ApiResponse>(this.baseUrl + id);
   // }
 
-  // createUser(user: User): Observable<ApiResponse> {
-  //   return this.http.post<ApiResponse>(this.baseUrl, user);
-  // }
+  createUser(userPayload){
+    return this.http.post(this.baseUrl+'users',userPayload);
+  }
 
   // updateUser(user: User): Observable<ApiResponse> {
   //   return this.http.put<ApiResponse>(this.baseUrl + user.id, user);
