@@ -9,12 +9,12 @@ import {ApiService} from "../../service/api.service";
 })
 export class ViewUserComponent implements OnInit {
 
-  users: User[];
-
+  user: [];
+  show: boolean;
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-  	let userId = window.localStorage.getItem("UserId");
+  	let userId:any = window.localStorage.getItem("UserId");
   	let userToken = window.localStorage.getItem("token");
   	this.show = false;
   	if(userId==null && !userToken) {
@@ -22,7 +22,7 @@ export class ViewUserComponent implements OnInit {
       return;
     }
     this.apiService.getUserById(userId)
-      .subscribe( data => {
+      .subscribe( (data:any) => {
         this.user = data.data;
         this.show = true;
       });

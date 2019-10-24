@@ -10,7 +10,7 @@ import {ApiService} from "../../service/api.service";
 export class ListUserComponent implements OnInit {
 
   constructor(private router: Router, private apiService: ApiService) { }
-  users: []
+  users: any
   ngOnInit() {
     if(!window.localStorage.getItem('token')) {
       this.router.navigate(['login']);
@@ -20,27 +20,26 @@ export class ListUserComponent implements OnInit {
   }
 
   getUsers(){
-  	this.apiService.getUsers().subscribe(data => {
+  	this.apiService.getUsers().subscribe((data:any) => {
         this.users = data.data;
     });
   }
 
-  viewUser(user): void {
+  viewUser(id: number): void {
   	window.localStorage.removeItem("UserId");
-    window.localStorage.setItem("UserId", user.id.toString());
+    window.localStorage.setItem("UserId", id.toString());
   	this.router.navigate(['view-user']);
   }
 
-  editUser(user): void {
+  editUser(id:number): void {
     window.localStorage.removeItem("editUserId");
-    window.localStorage.setItem("editUserId", user.id.toString());
+    window.localStorage.setItem("editUserId", id.toString());
     this.router.navigate(['edit-user']);
   }
 
-  deleteUser(user): void {
+  deleteUser(user:any): void {
     this.apiService.deleteUser(user.id)
       .subscribe( data => {
-      	console.log(data, 'data')
         this.users = this.users.filter(u => u !== user);
       })
   };
