@@ -14,6 +14,7 @@ export class EditUserComponent implements OnInit {
   user: [];
   editUser: FormGroup;
   invalidUpdateUser: boolean = false;
+  messageStatus:boolean = false;
   constructor(private formBuilder: FormBuilder,private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
@@ -34,7 +35,9 @@ export class EditUserComponent implements OnInit {
         this.editUser.setValue(data.data);
       });
   }
-
+  handleClose(){
+    this.messageStatus = false;
+  }
   onSubmit() {
   	let updateData = this.editUser.value;
     this.apiService.updateUser(updateData)
@@ -42,7 +45,10 @@ export class EditUserComponent implements OnInit {
       .subscribe(
         (data: any) => {
           if(data.updatedAt) {
-            this.router.navigate(['users']);
+          	this.messageStatus = true;
+          	setTimeout(() => {
+            	this.router.navigate(['users']);
+        	}, 3000);
           }else {
             this.invalidUpdateUser = true;
           }

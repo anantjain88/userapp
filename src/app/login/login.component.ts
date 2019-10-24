@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
         	this.router.navigate(['users']);
 	    },(error) => {
 	    	this.invalidLogin = true;
-        	// alert('User not found');
 	    }
     );
   }

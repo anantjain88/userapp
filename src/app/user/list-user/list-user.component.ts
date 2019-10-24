@@ -11,6 +11,7 @@ export class ListUserComponent implements OnInit {
 
   constructor(private router: Router, private apiService: ApiService) { }
   users: any
+  isDelete:boolean = false;
   ngOnInit() {
     if(!window.localStorage.getItem('token')) {
       this.router.navigate(['login']);
@@ -40,6 +41,7 @@ export class ListUserComponent implements OnInit {
   deleteUser(user:any): void {
     this.apiService.deleteUser(user.id)
       .subscribe( data => {
+        this.isDelete = true;
         this.users = this.users.filter(u => u !== user);
       })
   };

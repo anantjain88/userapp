@@ -33,7 +33,9 @@ export class AddUserComponent implements OnInit {
     this.apiService.createUser(userPayload).subscribe(
       (response: any) => {
         this.messageStatus = true;
-        // this.router.navigate(["users"]);
+        setTimeout(() => {
+          this.router.navigate(["users"]);
+        }, 3000);
       },
       error => {
         this.invalidAddUser = true;
@@ -42,7 +44,6 @@ export class AddUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    // window.localStorage.removeItem('token');
     if (!window.localStorage.token) {
       this.router.navigate(["login"]);
     } else {
