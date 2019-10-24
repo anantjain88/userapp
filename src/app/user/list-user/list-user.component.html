@@ -12,8 +12,38 @@
           </a>
         </div>
       </div>
+      <h1 class="ui header title">Users</h1>
+</div>
+<div class="ui three cards list-wrapper">
+  <div class="card" *ngFor="let user of users">
+    <div class="content">
+      <img class="left floated tiny circular ui image" src="{{user.avatar}}">
       <div>
-         List user
-          
+        <div class="header">
+          {{user.first_name}} {{user.last_name}}
+        </div>
+        <div class="meta">
+          {{user.email}}
+        </div>
+        <!-- <div class="description">
+          Mobile: 9874563210
+        </div> -->
       </div>
+    </div>
+    <div class="ui two column centered grid extra content icon-wrapper">
+      <i class="large edit outline icon"></i>
+      <i class="large address card outline icon detail-user" (click)="viewUser(user)"></i>
+      <i class="large trash alternate outline icon"></i>
+    </div>
+  </div>
+</div>
+<div class="ui right floated pagination menu">
+  <a class="icon item" (click)="getUsers(page-1)">
+    <i class="left chevron icon"></i>
+  </a>
+  <a [ngClass]="page==1 ? 'item active' : 'item'" (click)="getUsers(1)">1</a>
+  <a [ngClass]="page==2 ? 'item active' : 'item'" (click)="getUsers(2)">2</a>
+  <a class="icon item" (click)="getUsers(page+1)">
+    <i class="right chevron icon"></i>
+  </a>
 </div>

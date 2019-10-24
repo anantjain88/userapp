@@ -13,7 +13,9 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 
 import {ApiService} from "./service/api.service";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { ViewUserComponent } from './user/view-user/view-user.component';
 // import {TokenInterceptor} from "./core/interceptor";
+import { DeferLoadModule } from "@trademe/ng-defer-load";
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
     ListUserComponent,
     AddUserComponent,
     EditUserComponent,
+    ViewUserComponent,
     // AddUserComponent,
     // EditUserComponent
   ],
   imports: [
     BrowserModule,
+    DeferLoadModule,
     routing,
     ReactiveFormsModule,
     HttpClientModule

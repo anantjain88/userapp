@@ -10,18 +10,18 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   baseUrl: string = 'https://reqres.in/api/';
 
-  login(loginPayload) {
+  login(loginPayload: {email: string,password: string}) {
     //return this.http.post<ApiResponse>('http://localhost:8080/' + 'token/generate-token', loginPayload);
     return this.http.post(this.baseUrl+'login',loginPayload);
   }
 
-  // getUsers() : Observable<ApiResponse> {
-  //   return this.http.get<ApiResponse>(this.baseUrl);
-  // }
+  getUsers(page: number) {
+    return this.http.get(this.baseUrl+'users?page='+page);
+  }
 
-  // getUserById(id: number): Observable<ApiResponse> {
-  //   return this.http.get<ApiResponse>(this.baseUrl + id);
-  // }
+  getUserById(id: number) {
+    return this.http.get(this.baseUrl + 'users/'+id);
+  }
 
   // createUser(user: User): Observable<ApiResponse> {
   //   return this.http.post<ApiResponse>(this.baseUrl, user);

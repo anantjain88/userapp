@@ -2,3 +2,20 @@
     background-color: #373a3c;
     border-radius: 0;
 }
+.title{
+	padding: 2px 0px 5px 60px;
+}
+.list-wrapper{
+	padding: 10px 90px;
+}
+.icon-wrapper i{
+	cursor: pointer;
+	font-size: 20px;
+	margin: 0px 5px; 
+}
+.detail-user{
+	font-size: 23px!important;
+}
+.pagination{
+	margin-right: 88px!important;
+}
