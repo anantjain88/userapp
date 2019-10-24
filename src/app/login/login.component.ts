@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.controls.username.value,
       password: this.loginForm.controls.password.value
     }
-    this.apiService.login(loginPayload).subscribe((response) => {
-    		window.localStorage.setItem('token', data.token);
-        	this.router.navigate(['list-user']);
+    this.apiService.login(loginPayload).subscribe((response:any) => {
+    		window.localStorage.setItem('token', response.token);
+        	this.router.navigate(['users']);
 	    },(error) => {
 	    	this.invalidLogin = true;
         	// alert('User not found');
