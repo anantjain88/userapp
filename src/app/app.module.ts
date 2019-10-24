@@ -8,6 +8,9 @@ import { LoginComponent } from './login/login.component';
 // import { EditUserComponent } from './user/edit-user/edit-user.component';
 import {routing} from "./app-routing.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ListUserComponent } from './user/list-user/list-user.component';
+import { AddUserComponent } from './user/add-user/add-user.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 // import {ApiService} from "./service/api.service";
 // import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 // import {TokenInterceptor} from "./core/interceptor";
@@ -17,6 +20,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppComponent,
     // ListUserComponent,
     LoginComponent,
+    ListUserComponent,
+    AddUserComponent,
+    EditUserComponent,
     // AddUserComponent,
     // EditUserComponent
   ],
