@@ -11,12 +11,16 @@ import { ApiService } from "../../service/api.service";
 export class AddUserComponent implements OnInit {
   addUser: FormGroup;
   invalidAddUser: boolean = false;
+  messageStatus:boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private apiService: ApiService
   ) {}
 
+  handleClose(){
+    this.messageStatus = false;
+  }
   onSubmit() {
     if (this.addUser.invalid) {
       return;
@@ -28,7 +32,8 @@ export class AddUserComponent implements OnInit {
     };
     this.apiService.createUser(userPayload).subscribe(
       (response: any) => {
-        this.router.navigate(["users"]);
+        this.messageStatus = true;
+        // this.router.navigate(["users"]);
       },
       error => {
         this.invalidAddUser = true;
