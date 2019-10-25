@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router,ActivatedRoute} from "@angular/router";
 import {ApiService} from "../../service/api.service";
 
 @Component({
@@ -11,10 +11,16 @@ export class ViewUserComponent implements OnInit {
 
   user: [];
   show: boolean;
-  constructor(private router: Router, private apiService: ApiService) { }
+  routeSub:any;
+  constructor(private router: Router, private apiService: ApiService,private route: ActivatedRoute) { }
 
   ngOnInit() {
-  	let userId:any = window.localStorage.getItem("UserId");
+    let userId:any;
+    //get user if from url param
+    this.routeSub = this.route.params.subscribe(params => {      
+      userId = params['id']
+    });
+  	//let userId:any = window.localStorage.getItem("UserId");
   	let userToken = window.localStorage.getItem("token");
   	this.show = false;
   	if(userId==null && !userToken) {
@@ -27,9 +33,4 @@ export class ViewUserComponent implements OnInit {
         this.show = true;
       });
   }
-  logout(){
-    window.localStorage.clear();
-    this.router.navigate(['']);
-  }
-
 }

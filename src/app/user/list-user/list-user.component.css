@@ -1,10 +1,3 @@
-.active{
-	background-color: #417d6e!important;
-}
-.nav-wrapper{
-    background-color: #373a3c;
-    border-radius: 0;
-}
 .title{
 	padding: 2px 0px 5px 60px;
 }
@@ -26,11 +19,6 @@
 .active{
 	background-color: #417d6e!important;
 }
-.nav-wrapper .logo {
-    font-size: 20px;
-    font-weight: 700;
-}
-
 .custom-title{
 	float: left;
     color: #373a3c;
@@ -40,8 +28,21 @@
 .main-header{
 	float: left;
     width: 100%;
+    margin-top: 30px !important; 
 }
 .create-user{
 	float: right;
-    margin: 17px 30px 0px 0px;
+    margin: 17px 80px 0px 0px;
 }
+.ui.primary.button, .ui.primary.buttons .button{
+	border: 1px solid #2185d0;
+    color: #2185d0;
+    background-color: white;	
+}
+.ui.grid>* {
+	padding :0px !important;
+}
+.description {
+	color : #686868 !important;
+}
+

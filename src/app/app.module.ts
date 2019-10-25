@@ -15,6 +15,9 @@ import { ApiService } from "./service/api.service";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { ViewUserComponent } from "./user/view-user/view-user.component";
 import { DeferLoadModule } from "@trademe/ng-defer-load";
+import { HeaderComponent } from './global/header/header.component';
+import { FooterComponent } from './global/footer/footer.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { DeferLoadModule } from "@trademe/ng-defer-load";
     ListUserComponent,
     AddUserComponent,
     EditUserComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    HeaderComponent,
+    FooterComponent    
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import { DeferLoadModule } from "@trademe/ng-defer-load";
     routing,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

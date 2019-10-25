@@ -9,6 +9,7 @@ import { ApiService } from "../../service/api.service";
   styleUrls: ["./add-user.component.css"]
 })
 export class AddUserComponent implements OnInit {
+  // Global declaration
   addUser: FormGroup;
   invalidAddUser: boolean = false;
   messageStatus:boolean = false;
@@ -21,6 +22,7 @@ export class AddUserComponent implements OnInit {
   handleClose(){
     this.messageStatus = false;
   }
+  // Insert user
   onSubmit() {
     if (this.addUser.invalid) {
       return;
@@ -53,9 +55,5 @@ export class AddUserComponent implements OnInit {
         lastname: ["", Validators.required]
       });
     }
-  }
-  logout(){
-    window.localStorage.clear();
-    this.router.navigate(['']);
   }
 }

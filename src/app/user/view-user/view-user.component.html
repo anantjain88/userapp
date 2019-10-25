@@ -1,23 +1,7 @@
 <div>
-  <div class="ui inverted segment nav-wrapper">
-    <div class="ui inverted secondary menu">
-      <div class="item logo">
-        Website name
-      </div>
-
-      <a class="item" routerLink="/users">
-        Home
-      </a>
-
-      <a class="item active" routerLink="/users">
-        Users
-      </a>
-      <a class="ui right floated item" (click)="logout()">
-        Logout
-      </a>
-    </div>
-  </div>
-  <h1 class="custom-title">View Detail</h1>
+	<div class="main-header">
+  		<h1 class="custom-title">View Detail</h1>
+  	</div>
 </div>
 <div class="list-wrapper">
 	<div *ngIf="show" class="ui card">
@@ -27,8 +11,20 @@
 	  <div class="content">
 	    <a class="header">{{user.first_name}} {{user.last_name}}</a>
 	    <div class="meta">
-	      <span class="date">{{user.email}}</span>
+	      <span class="date">Joined in 2013</span>
 	    </div>
+	    <div class="meta">
+	      <span class="date"><i class="envelope icon"></i> {{user.email}}</span>
+	    </div>
+	    <div class="description">
+	      {{user.first_name}} is an art director living in New York.
+	    </div>
+	  </div>
+	   <div class="extra content">
+	    <a>
+	      <i class="user icon"></i>
+	      22 Friends
+	    </a>
 	  </div>
 	</div>
 </div>

@@ -1,28 +1,10 @@
 <div>
-  <div class="ui inverted segment nav-wrapper">
-    <div class="ui inverted secondary menu">
-      <div class="item logo">
-        Website name
-      </div>
-
-      <a class="item"  routerLink="/users">
-        Home
-      </a>
-
-      <a class="item active"  routerLink="/users">
-        Users
-      </a>
-      <a class="ui right floated item" (click)="logout()">
-        Logout
-      </a>
-    </div>
-  </div>
   <div class="main-header">
     <h1 class="custom-title">Users</h1>
-    <a class="ui primary button create-user" routerLink="/add-user">Create User</a>
+    <a class="ui primary button create-user" [routerLink]="['create']">Create User</a>
   </div>
 </div>
-<div class="ui three cards list-wrapper">
+<div class="ui four cards list-wrapper">
   <div class="card" *ngFor="let user of users">
     <div class="content">
       <img class="left floated tiny circular ui image" src="{{user.avatar}}">
@@ -31,16 +13,19 @@
           {{user.first_name}} {{user.last_name}}
         </div>
         <div class="meta">
-          {{user.email}}
+          United States
+        </div>
+        <div class="meta">
+          <i class="envelope icon"></i> {{user.email}}
         </div>
         <div class="description">
           Mobile: 9874563210
         </div>
       </div>
     </div>
-    <div class="ui two column centered grid extra content icon-wrapper">
-      <i class="large edit outline icon" (click)="editUser(user.id)"></i>
-      <i class="large address card outline icon detail-user" (click)="viewUser(user.id)"></i>
+    <div class="ui two column centered grid extra content icon-wrapper">      
+      <a [routerLink]="['edit',user.id]"><i class="edit outline icon"></i></a>
+      <a [routerLink]="['details',user.id]"><i class="large address card outline icon detail-user"></i></a>
       <i class="large trash alternate outline icon" (click)="deleteUser(user)"></i>
     </div>
   </div>

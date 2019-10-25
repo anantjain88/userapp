@@ -10,9 +10,10 @@ import {ViewUserComponent} from "./user/view-user/view-user.component";
 const routes: Routes = [
   { path : '', component : LoginComponent },
   { path: 'users', component: ListUserComponent },
-  { path: 'add-user', component: AddUserComponent },
-  { path: 'edit-user', component: EditUserComponent },
-  { path: 'view-user' , component: ViewUserComponent }
+  { path: 'users/create', component: AddUserComponent },
+  { path: 'users/edit/:id' , component: EditUserComponent },  
+  { path: 'users/details/:id' , component: ViewUserComponent },
+  {path: '**', component: ListUserComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);

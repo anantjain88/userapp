@@ -1,5 +1,5 @@
 import { Component, OnInit , Inject} from '@angular/core';
-import {Router} from "@angular/router";
+import {Router,ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs/operators";
 import {ApiService} from "../../service/api.service";
@@ -15,14 +15,20 @@ export class EditUserComponent implements OnInit {
   editUser: FormGroup;
   invalidUpdateUser: boolean = false;
   messageStatus:boolean = false;
-  constructor(private formBuilder: FormBuilder,private router: Router, private apiService: ApiService) { }
+  routeSub:any;
+  constructor(private formBuilder: FormBuilder,private router: Router, private apiService: ApiService,private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let userId = window.localStorage.getItem("editUserId");
+    let userId:any;
+    //get user if from url param
+    this.routeSub = this.route.params.subscribe(params => {
+      userId = params['id']
+    });
     if(!userId) {
       this.router.navigate(['users']);
       return;
     }
+    //edit user 
     this.editUser = this.formBuilder.group({
     	id: ["", Validators.required],
 	    email: ["", Validators.compose([Validators.required])],
@@ -38,6 +44,7 @@ export class EditUserComponent implements OnInit {
   handleClose(){
     this.messageStatus = false;
   }
+  //form submission handling
   onSubmit() {
   	let updateData = this.editUser.value;
     this.apiService.updateUser(updateData)
@@ -56,10 +63,6 @@ export class EditUserComponent implements OnInit {
         error => {
           this.invalidUpdateUser = true;
         });
-  }
-  logout(){
-    window.localStorage.clear();
-    this.router.navigate(['']);
   }
 
 }
